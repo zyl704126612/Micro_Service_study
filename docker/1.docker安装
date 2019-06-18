@@ -33,7 +33,15 @@ yum install epel-release
 
 yum install container-selinux
 
+yum makecache fast
+
 执行完以后，再执行
+
+yum install docker-ce
+
+6.启动docker
+
+systemctl start docker
 
 
 
