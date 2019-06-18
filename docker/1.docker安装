@@ -1,0 +1,40 @@
+docker centos7 安装(有坑)
+
+1.查看当前系统的内核版本
+uname -r
+
+2.卸载旧版本：（如果安装过旧版本的话）
+
+yum remove docker docker-common docker-selinux docker-engine
+
+3.安装所需的软件包
+
+yum install -y yum-utils device-mapper-persistent-data lvm2
+
+4.设置Docker的镜像仓库（直接设置阿里云镜像仓库），此步骤安装出错过，请删除 /etc/yum.repos.d/docker-ce.repo再执行以下语句。
+
+yum -config-manager \
+  --add-repo \
+  http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+5.安装最新版本的 Docker CE
+
+yum install docker-ce
+
+如果出现安装错误：
+Error: Package: docker-ce-18.03.1.ce-1.el7.centos.x86_64 (docker-ce-edge)
+           Requires: container-selinux >= 2.9
+
+直接yum 找不到container-selinux，执行一下语句
+安装epel
+wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo  
+
+yum install epel-release
+
+yum install container-selinux
+
+执行完以后，再执行
+
+
+
+
