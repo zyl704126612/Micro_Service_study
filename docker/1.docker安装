@@ -43,6 +43,17 @@ yum install docker-ce
 
 systemctl start docker
 
+7.安装docker compose
+
+yum install epel-release
+
+yum install -y python-pip
+
+pip install docker-compose
+
+查看是否安装成功
+docker-compose -version
+
 
 
 
